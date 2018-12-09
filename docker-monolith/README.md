@@ -1,11 +1,11 @@
 # twentythousandphantoms_microservices
 ## Table of Contents
   
-- HW-14 [Prepare Google Cloud project](#prepare-google-cloud-project)
-- HW-14 [Create the docker host](#create-the-docker-host)
-- HW-14 [Build my own docker image](#build-my-own-docker-image)
-- HW-14 [Work with Docker Hub](#work-with-docker-hub)
-- HW-14* [Prepare docker-host instances via Terraform](#prepare-docher-host-instances-via-terraform)
+-  [Prepare Google Cloud project](#prepare-google-cloud-project)
+-  [Create the docker host](#create-the-docker-host)
+-  [Build my own docker image](#build-my-own-docker-image)
+-  [Work with Docker Hub](#work-with-docker-hub)
+- * [Prepare docker-host instances via Terraform](#prepare-docker-host-instances-via-terraform)
   
 ## prepare Google Cloud project
   

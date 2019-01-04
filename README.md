@@ -27,7 +27,6 @@
    $ travis login --org
    $ travis encrypt "devops-team-otus:<private_token>#andrey_belov" --add notifications.slack.rooms --org 
 
-
 ## Prepare Google Cloud project
 
 1. Create new project named "docker": https://console.cloud.google.com/compute
@@ -80,4 +79,10 @@
 
 ## Build my own docker image
 
-1. For the futher work we need four files: `mongod.conf` `db_config` `start.sh`. 
+1. For the futher work we need four files: `mongod.conf` `db_config` `start.sh` and `Dockerfile`. 
+1. Lets create App Image
+
+   Dockerfile:
+   ```
+   FROM ubuntu:16.04
+   ```

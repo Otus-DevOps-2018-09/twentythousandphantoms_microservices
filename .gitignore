@@ -1,3 +1,9 @@
 # Misc
 .env/
 .swp
+
+# Terraform
+*.tfvars
+*.tfstate
+*.tfstate.backup
+.terraform/

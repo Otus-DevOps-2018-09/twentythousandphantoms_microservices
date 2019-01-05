@@ -3,10 +3,11 @@
 ## Table of Contents
 
 - HW-2  [Travis & Slack Integration](#travis-&-slack-integration)
-- HW-14 [Prepare Google Cloud project](#prepare-google-cloud-project)
-- HW-14 [Create the docker host](#create-the-docker-host)
-- HW-14 [Build my own docker image](#build-my-own-docker-image)
-- HW-14 [Work with Docker Hub](#work-with-docker-hub)
+- HW-14 (docker-1) [Prepare Google Cloud project](#prepare-google-cloud-project)
+- HW-14 (docker-1) [Create the docker host](#create-the-docker-host)
+- HW-14 (docker-1) [Build my own docker image](#build-my-own-docker-image)
+- HW-14 (docker-1) [Work with Docker Hub](#work-with-docker-hub)
+- HW-14* (docker-1) [Prepare docker-host instances via Terraform](#prepare-docher-host-instances-via-terraform)
 
 ### Travis & Slack Integration
 
@@ -244,4 +245,28 @@
    • docker stop reddit && docker rm reddit
    • docker run --name reddit --rm -it <your-login>/otus-reddit:1.0 bash
      • ls /
+   ```
+
+## Prepare docker-host instances via Terraform
+
+1. Let use Terraform for creating docker-host instances in GCP. There is meta-parameter `count` available - The number of identical resources to create.
+
+   ```HCL
+   resource "google_compute_instance" "docker-host" {
+     count        = "${var.count}"
+     name         = "docker-host-${count.index}"
+   [...]
+   ```
+
+   Files:
+     - docker-monolith/infra/tarreform/main.tf
+     - docker-monolith/infra/tarreform/variables.tf
+     - docker-monolith/infra/tarreform/terraform.tfvars
+
+1. You can let the docker-machine know about existing hosts with `--google-use-existing` parameter
+
+   ```bash
+   docker-machine create --driver google \
+     --google-use-existing --google-zone europe-west1-c \
+   docker-host-0
    ```
